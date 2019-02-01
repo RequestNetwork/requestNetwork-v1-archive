@@ -1,3 +1,9 @@
+## Deprecated
+
+This repository hosts the packages for the first version of Request Network. These packages are minimally maintained and deprecated. For the current version, [see RequestNetwork/requestNetwork](https://github.com/RequestNetwork/requestNetwork).
+
+---
+
 <img src="https://github.com/RequestNetwork/Request/raw/master/Hubs/Marketing%20and%20design/logo-horizontal.png" width="400px" >
 
 ---
