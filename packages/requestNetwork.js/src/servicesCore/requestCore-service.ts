@@ -288,32 +288,40 @@ export default class RequestCoreService {
                         fromBlock: _fromBlock ? _fromBlock : coreContract.blockNumber,
                         toBlock: _toBlock ? _toBlock : 'latest'};
 
-                    let eventsCoreRaw: any[] = [];
+                    // Push all the promises for the different types of events
+                    let eventPromises = [];
 
                     /* tslint:disable:max-line-length */
-                    eventsCoreRaw = eventsCoreRaw.concat(await coreContract.instance.getPastEvents('Created', optionFilters));
-                    eventsCoreRaw = eventsCoreRaw.concat(await coreContract.instance.getPastEvents('Accepted', optionFilters));
-                    eventsCoreRaw = eventsCoreRaw.concat(await coreContract.instance.getPastEvents('Canceled', optionFilters));
-                    eventsCoreRaw = eventsCoreRaw.concat(await coreContract.instance.getPastEvents('UpdateBalance', optionFilters));
-                    eventsCoreRaw = eventsCoreRaw.concat(await coreContract.instance.getPastEvents('UpdateExpectedAmount', optionFilters));
-                    eventsCoreRaw = eventsCoreRaw.concat(await coreContract.instance.getPastEvents('NewSubPayee', optionFilters));
+                    eventPromises.push(coreContract.instance.getPastEvents("Created", optionFilters));
+                    eventPromises.push(coreContract.instance.getPastEvents("Accepted", optionFilters));
+                    eventPromises.push(coreContract.instance.getPastEvents("Canceled", optionFilters));
+                    eventPromises.push(coreContract.instance.getPastEvents("UpdateBalance", optionFilters));
+                    eventPromises.push(coreContract.instance.getPastEvents("UpdateExpectedAmount", optionFilters));
+                    eventPromises.push(coreContract.instance.getPastEvents("NewSubPayee", optionFilters));
                     /* tslint:enable:max-line-length */
 
-                        // waiting for filter working (see above)
-                    let eventsCore = [];
-                    eventsCore = await Promise.all(eventsCoreRaw.map(async (e) => {
-                                        return new Promise(async (resolveEvent, rejectEvent) => {
-                                            const transaction = await this.web3Single.getTransaction(e.transactionHash);
-                                            resolveEvent({
-                                                _meta: {
-                                                    blockNumber: e.blockNumber,
-                                                    logIndex: e.logIndex,
-                                                    timestamp: await this.web3Single.getBlockTimestamp(e.blockNumber)},
-                                                data: e.returnValues,
-                                                name: e.event,
-                                                from: transaction.from});
-                                        });
-                                    }));
+                    // Resolve the promises
+                    const eventsResult = await Promise.all(eventPromises);
+                    console.log(eventsResult);
+                    // Flatten the results [][] => []
+                    const events = eventsResult.reduce(
+                        (accumulator, currentValue) => accumulator.concat(currentValue),
+                        []
+                    );
+                    
+                    // Build the results promises
+                    const eventsCore = await Promise.all(events.map(async (event: any) => {
+                        return {
+                        _meta: {
+                            blockNumber: event.blockNumber,
+                            logIndex: event.logIndex,
+                            timestamp: await this.web3Single.getBlockTimestamp(event.blockNumber),
+                        },
+                        data: event.returnValues,
+                        name: event.event,
+                        from: (await this.web3Single.getTransaction(event.transactionHash)).from
+                        };
+                    }));
 
                     let eventsCurrencyContract = [];
                     const serviceContract = ServicesContracts.getServiceFromAddress(this.web3Single.networkName, currencyContract);
@@ -325,7 +333,7 @@ export default class RequestCoreService {
                     return resolve(eventsCore
                                     .concat(eventsCurrencyContract)
                                     .sort( (a: any, b: any) => {
-
+                                    
                                       const diffTimestamp = a._meta.timestamp - b._meta.timestamp;
                                       return diffTimestamp !== 0 ? diffTimestamp : a._meta.logIndex - b._meta.logIndex;
                                     }));
