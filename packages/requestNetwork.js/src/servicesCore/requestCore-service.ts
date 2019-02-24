@@ -333,7 +333,6 @@ export default class RequestCoreService {
                     return resolve(eventsCore
                                     .concat(eventsCurrencyContract)
                                     .sort( (a: any, b: any) => {
-                                    
                                       const diffTimestamp = a._meta.timestamp - b._meta.timestamp;
                                       return diffTimestamp !== 0 ? diffTimestamp : a._meta.logIndex - b._meta.logIndex;
                                     }));
