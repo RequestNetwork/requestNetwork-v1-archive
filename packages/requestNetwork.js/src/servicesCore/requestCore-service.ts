@@ -302,8 +302,8 @@ export default class RequestCoreService {
 
                     // Resolve the promises
                     const eventsResult = await Promise.all(eventPromises);
-                    console.log(eventsResult);
-                    // Flatten the results [][] => []
+
+                    // Flatten the results [[][]] => []
                     const events = eventsResult.reduce(
                         (accumulator, currentValue) => accumulator.concat(currentValue),
                         []
@@ -312,14 +312,14 @@ export default class RequestCoreService {
                     // Build the results promises
                     const eventsCore = await Promise.all(events.map(async (event: any) => {
                         return {
-                        _meta: {
-                            blockNumber: event.blockNumber,
-                            logIndex: event.logIndex,
-                            timestamp: await this.web3Single.getBlockTimestamp(event.blockNumber),
-                        },
-                        data: event.returnValues,
-                        name: event.event,
-                        from: (await this.web3Single.getTransaction(event.transactionHash)).from
+                            _meta: {
+                                blockNumber: event.blockNumber,
+                                logIndex: event.logIndex,
+                                timestamp: await this.web3Single.getBlockTimestamp(event.blockNumber),
+                            },
+                            data: event.returnValues,
+                            name: event.event,
+                            from: (await this.web3Single.getTransaction(event.transactionHash)).from
                         };
                     }));
 
