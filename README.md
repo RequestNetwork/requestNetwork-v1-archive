@@ -4,7 +4,7 @@ This repository hosts the packages for the first version of Request Network. The
 
 ---
 
-<img src="https://github.com/RequestNetwork/Request/raw/master/Hubs/Marketing%20and%20design/logo-horizontal.png" width="400px" >
+<img src="https://raw.githubusercontent.com/RequestNetwork/Request/master/Hubs/Request%20Logos/OnLight/png/Request_onlight_reg_green.png" width="400px" >
 
 ---
 
