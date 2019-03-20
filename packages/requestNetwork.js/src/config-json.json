@@ -1,34 +1,29 @@
 {
-    "ethereum": 
-    {    
+    "ethereum": {
         "default": "main",
-        "nodeUrlDefault": 
-        {
+        "nodeUrlDefault": {
             "private": "http://localhost:8545",
-            "kovan": "https://kovan.infura.io/BQBjfSi5EKSCQQpXebO",
-            "rinkeby": "https://rinkeby.infura.io/BQBjfSi5EKSCQQpXebO",
-            "main": "https://mainnet.infura.io/BQBjfSi5EKSCQQpXebO"
+            "rinkeby": "https://rinkeby.infura.io/v3/aeae830838614da186df7984467a2d2d",
+            "main": "https://mainnet.infura.io/v3/aeae830838614da186df7984467a2d2d"
         },
         "defaultNumberOfConfirmation": 1,
         "gasPriceDefault": "4",
         "gasPriceDefaultUnit": "gwei",
-        "gasPriceMinimumCriticalInWei": 100000000 
+        "gasPriceMinimumCriticalInWei": 100000000
     },
-    "bitcoin": 
-    {  
+    "bitcoin": {
         "default": 0
     },
-    "ipfs": 
-    {    
+    "ipfs": {
         "nodeUrlDefault": {
             "private": {
-                "host": "localhost", 
-                "port": "5001", 
+                "host": "localhost",
+                "port": "5001",
                 "protocol": "http"
             },
             "public": {
-                "host": "ipfs.infura.io", 
-                "port": "5001", 
+                "host": "ipfs.infura.io",
+                "port": "5001",
                 "protocol": "https"
             }
         },
