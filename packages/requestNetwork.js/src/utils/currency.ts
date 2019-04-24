@@ -96,6 +96,20 @@ function getCurrencyConfig(currency: Types.Currency)
             service: RequestERC20Service.getInstance(),
             decimals: 18,
         },
+        [Types.Currency.BNTY as number]: {
+            erc20TokenAddresses: {
+                main: '0xfa7b14e5e5e0b59ef6fb86f56928349eb607cbb3',
+            },
+            service: RequestERC20Service.getInstance(),
+            decimals: 18,
+        },
+        [Types.Currency.MKR as number]: {
+            erc20TokenAddresses: {
+                main: '0x23d33c46f64ef9afec6a19e7ad758e99c87ae129',
+            },
+            service: RequestERC20Service.getInstance(),
+            decimals: 18,
+        },
     }[currency];
 
     if (!currencyConfig) {
@@ -146,6 +160,8 @@ export default {
             'RequestERC20-bat': Types.Currency.BAT,
             'RequestERC20-bnb': Types.Currency.BNB,
             'RequestERC20-link': Types.Currency.LINK,
+            'RequestERC20-bnty': Types.Currency.BNTY,
+            'RequestERC20-mkr': Types.Currency.MKR,
         };
 
         const currencyContractName = requestArtifacts.getContractNameForAddress(address.toLowerCase());
