@@ -1,5 +1,11 @@
 # Request JS Library Documentation 
 
+:warning: 
+**Due to the new infura authentication process, the default configuration is local.
+To use Request v1 on Rinkeby or Mainnet, you must use a custom web3 provider. 
+If you want to use infura, please visit [infura.io] to get your own infura token.**
+:warning:
+
 ## Introduction
 
 Welcome to the requestNetwork.js documentation! requestNetwork.js is a Javascript library for interacting with the Request Network protocol. 
@@ -63,7 +69,7 @@ CommonJS (recommended):
 
 ### Constructor
 
-Default configuration (Infura and Mainnet)
+Default configuration (local)
 
 ```js
 let requestNetwork = new RequestNetwork();
