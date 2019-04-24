@@ -38,6 +38,8 @@
         "last-requesterc20-0x0d8775f648430679a709e98d2b0cb6250d2887ef": "RequestERC20/RequestERC20-0.2.2-bat-main.json",
         "last-requesterc20-0xb8c77482e45f1f44de1745f52c74426c631bdd52": "RequestERC20/RequestERC20-0.2.2-bnb-main.json",
         "last-requesterc20-0x514910771af9ca656af840dff83e8264ecf986ca": "RequestERC20/RequestERC20-0.2.2-link-main.json",
+        "last-requesterc20-0xd2d6158683aee4cc838067727209a0aaf4359de3": "RequestERC20/RequestERC20-0.2.7-bnty-main.json",
+        "last-requesterc20-0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2": "RequestERC20/RequestERC20-0.2.7-mkr-main.json",
 
         "0xdb600fda54568a35b78565b5257125bebc51eb27": "RequestCore/RequestCore-0.0.5-prod.json",
         "0x3038045cd883abff0c6eea4b1954843c0fa5a735": "RequestEthereum/RequestEthereum-0.0.5-prod.json",
@@ -52,7 +54,8 @@
         "0xbbe47efe1a2cef913562fe454f6eb75a9f75e6d6": "RequestERC20/RequestERC20-0.2.2-zrx-main.json",
         "0x3f90549baf95c3c0b7e5bbb66b39edaefc7bd25e": "RequestERC20/RequestERC20-0.2.2-bat-main.json",
         "0x1fc6cceafaac97261e248ff5b8c6387696f14225": "RequestERC20/RequestERC20-0.2.2-bnb-main.json",
-        "0x8f9224e619921923fcb0f2e1a31502bf22b87cff": "RequestERC20/RequestERC20-0.2.2-link-main.json"
-
+        "0x8f9224e619921923fcb0f2e1a31502bf22b87cff": "RequestERC20/RequestERC20-0.2.2-link-main.json",
+        "0xfa7b14e5e5e0b59ef6fb86f56928349eb607cbb3": "RequestERC20/RequestERC20-0.2.7-bnty-main.json",
+        "0x23d33c46f64ef9afec6a19e7ad758e99c87ae129": "RequestERC20/RequestERC20-0.2.7-mkr-main.json"
     }
 }
