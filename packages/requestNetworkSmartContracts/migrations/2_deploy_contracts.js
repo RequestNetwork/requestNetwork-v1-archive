@@ -6,7 +6,7 @@ const RequestCore = artifacts.require("./RequestCore.sol");
 const RequestEthereum = artifacts.require("./RequestEthereum.sol");
 const RequestERC20 = artifacts.require("./RequestERC20.sol");
 
-const addressContractBurner = "0xfCb4393e7fAef06fAb01c00d67c1895545AfF3b8";
+const addressContractBurner = "0x7b3c4d90e8af6030d66c07f8f815f9505e379d6f";
 const feesPerTenThousand = 10; // 0.1 %
 const maxFees = web3.toWei(0.002, 'ether');
 
