@@ -98,14 +98,14 @@ function getCurrencyConfig(currency: Types.Currency)
         },
         [Types.Currency.BNTY as number]: {
             erc20TokenAddresses: {
-                main: '0xfa7b14e5e5e0b59ef6fb86f56928349eb607cbb3',
+                main: '0xd2d6158683aee4cc838067727209a0aaf4359de3',
             },
             service: RequestERC20Service.getInstance(),
             decimals: 18,
         },
         [Types.Currency.MKR as number]: {
             erc20TokenAddresses: {
-                main: '0x23d33c46f64ef9afec6a19e7ad758e99c87ae129',
+                main: '0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2',
             },
             service: RequestERC20Service.getInstance(),
             decimals: 18,
