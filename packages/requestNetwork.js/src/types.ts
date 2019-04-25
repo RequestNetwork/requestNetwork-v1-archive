@@ -26,6 +26,8 @@ export enum Currency {
     BAT,
     BNB,
     LINK,
+    BNTY,
+    MKR,
 }
 
 // State of the Request
