@@ -2,7 +2,6 @@ import Web3PromiEvent = require('web3-core-promievent');
 import RequestCoreService from '../servicesCore/requestCore-service';
 import * as Types from '../types';
 import currencyUtils from '../utils/currency';
-import utils from './utils';
 
 /**
  * Util function to wrap a function call into a PromiseEventEmitter for an action on a Request.
@@ -13,7 +12,7 @@ function promiEventLibraryWrap(
     request: Request,
     callback: () => PromiseEventEmitter<{ transaction: any }>,
     events: string[] = ['broadcasted'],
-): PromiseEventEmitter<{ request: Request, transaction: any }> {
+): PromiseEventEmitter<{request: Request, transaction: any}> {
     const outPromiseEvent = Web3PromiEvent();
     const inPromiseEvent = callback();
 
@@ -94,16 +93,7 @@ export default class Request {
         amountsToPay: Types.Amount[] = [],
         additions: Types.Amount[] = [],
         transactionOptions: Types.ITransactionOptions = {},
-    ): PromiseEventEmitter<{ request: Request, transaction: any }> {
-
-        // Verify amountsToPay and additions are arrays of positive number
-        if (amountsToPay.length === 0 || !utils.isArrayOfPositiveAmounts(amountsToPay)) {
-            throw new Error(`amountToRefund must be an non empty array of positive number`);
-        }
-        if (!utils.isArrayOfPositiveAmounts(additions)) {
-            throw new Error(`additions must be an array of positive number`);
-        }
-
+    ): PromiseEventEmitter<{request: Request, transaction: any}> {
         return promiEventLibraryWrap(this, () =>
             this.requestService.paymentAction(
                 this.requestId,
@@ -122,7 +112,7 @@ export default class Request {
      */
     public accept(
         transactionOptions: Types.ITransactionOptions = {},
-    ): PromiseEventEmitter<{ request: Request, transaction: any }> {
+    ): PromiseEventEmitter<{request: Request, transaction: any}> {
         return promiEventLibraryWrap(this, () =>
             this.requestService.accept(
                 this.requestId,
@@ -139,7 +129,7 @@ export default class Request {
      */
     public cancel(
         transactionOptions: Types.ITransactionOptions = {},
-    ): PromiseEventEmitter<{ request: Request, transaction: any }> {
+    ): PromiseEventEmitter<{request: Request, transaction: any}> {
         return promiEventLibraryWrap(this, () =>
             this.requestService.cancel(
                 this.requestId,
@@ -158,13 +148,7 @@ export default class Request {
     public refund(
         amountToRefund: Types.Amount,
         transactionOptions: Types.ITransactionOptions = {},
-    ): PromiseEventEmitter<{ request: Request, transaction: any }> {
-
-        // Verify amount is a positive number
-        if (!utils.isPositiveAmount(amountToRefund)) {
-            throw new Error(`amountToRefund must be a positive number`);
-        }
-
+    ): PromiseEventEmitter<{request: Request, transaction: any}> {
         return promiEventLibraryWrap(this, () =>
             this.requestService.refundAction(
                 this.requestId,
@@ -185,7 +169,7 @@ export default class Request {
     public addSubtractions(
         amounts: Types.Amount[],
         transactionOptions: Types.ITransactionOptions = {},
-    ): PromiseEventEmitter<{ request: Request, transaction: any }> {
+    ): PromiseEventEmitter<{request: Request, transaction: any}> {
         console.warn('Deprecated. See reduceExpectedAmounts');
         return this.reduceExpectedAmounts(amounts, transactionOptions)
     }
@@ -201,7 +185,7 @@ export default class Request {
     public reduceExpectedAmounts(
         amounts: Types.Amount[],
         transactionOptions: Types.ITransactionOptions = {},
-    ): PromiseEventEmitter<{ request: Request, transaction: any }> {
+    ): PromiseEventEmitter<{request: Request, transaction: any}> {
         return promiEventLibraryWrap(this, () =>
             this.requestService.reduceExpectedAmounts(
                 this.requestId,
@@ -222,7 +206,7 @@ export default class Request {
     public addAdditionals(
         amounts: Types.Amount[],
         transactionOptions: Types.ITransactionOptions = {},
-    ): PromiseEventEmitter<{ request: Request, transaction: any }> {
+    ): PromiseEventEmitter<{request: Request, transaction: any}> {
         console.warn('Deprecated. See increaseExpectedAmounts');
         return this.increaseExpectedAmounts(amounts, transactionOptions)
     }
@@ -238,7 +222,7 @@ export default class Request {
     public increaseExpectedAmounts(
         amounts: Types.Amount[],
         transactionOptions: Types.ITransactionOptions = {},
-    ): PromiseEventEmitter<{ request: Request, transaction: any }> {
+    ): PromiseEventEmitter<{request: Request, transaction: any}> {
         return promiEventLibraryWrap(this, () =>
             this.requestService.additionalAction(
                 this.requestId,
