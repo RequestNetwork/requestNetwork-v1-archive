@@ -10,7 +10,6 @@ import * as Types from '../types';
 import currencyUtils from '../utils/currency';
 import Request from './request';
 import SignedRequest from './signed-request';
-import utils from './utils';
 
 /**
  * Class serving as entry-point into the requestNetwork.js library.
@@ -69,7 +68,7 @@ export default class RequestNetwork {
      * @param {object=} options.ipfsCustomNode - define a custom ipfs node like {host, port, protocol}, if given with useIpfsPublic will throw an error
      * @memberof RequestNetwork
      */
-    constructor(options?: { provider?: any, ethNetworkId?: number, useIpfsPublic?: boolean, bitcoinNetworkId?: number, ipfsCustomNode?: object } | any, ethNetworkId?: number, useIpfsPublic?: boolean) {
+    constructor(options?: { provider?: any, ethNetworkId?: number, useIpfsPublic?: boolean, bitcoinNetworkId?: number, ipfsCustomNode?: object} | any, ethNetworkId?: number, useIpfsPublic?: boolean) {
         let bitcoinNetworkId;
 
         // Parameter handling
@@ -85,7 +84,7 @@ export default class RequestNetwork {
         let ipfsNode = useIpfsPublic;
 
         if (options && options.ipfsCustomNode) {
-            if (typeof ipfsNode !== 'undefined') {
+            if(typeof ipfsNode !== 'undefined') {
                 throw new Error('options.ipfsCustomNode is given with useIpfsPublic');
             }
             ipfsNode = options.ipfsCustomNode;
@@ -94,7 +93,7 @@ export default class RequestNetwork {
             ipfsNode = true;
         }
 
-        if (provider && !ethNetworkId) {
+        if (provider && ! ethNetworkId) {
             throw new Error('if you give provider you have to give the networkId too');
         }
 
@@ -138,20 +137,10 @@ export default class RequestNetwork {
         payees: Types.IPayee[],
         payer: Types.IPayer,
         requestOptions: Types.IRequestCreationOptions = {},
-    ): PromiseEventEmitter<{ request: Request, transaction: any }> {
+    ): PromiseEventEmitter<{request: Request, transaction: any}> {
         // new promiEvent to wrap the promiEvent returned by the services. It is necessary, in order to add the Request object in the resolution of the promise
         const promiEvent = Web3PromiEvent();
         let promise;
-
-        // Check payees parameter
-        if (payees.length === 0 || !utils.isArrayOfPayeeInfos(payees)) {
-            throw new Error(`Invalid payees array`);
-        }
-
-        // Check payer parameter
-        if (!utils.isPayerInfo(payer)) {
-            throw new Error(`Invalid payer`);
-        }
 
         // Create an ERC20 Request
         if (currencyUtils.isErc20(currency)) {
@@ -172,7 +161,9 @@ export default class RequestNetwork {
                     undefined, // _extensionParams,
                     requestOptions.transactionOptions,
                 );
-            } else if (as === Types.Role.Payer) {
+            }
+
+            if (as === Types.Role.Payer) {
                 // ERC20 Request as Payer
                 promise = requestERC20.createRequestAsPayer(
                     addressTestToken,
@@ -186,8 +177,6 @@ export default class RequestNetwork {
                     undefined, // _extensionParams
                     Object.assign({}, requestOptions.transactionOptions, { from: payer.idAddress }),
                 );
-            } else {
-                throw new Error(`Role should be Payer or Payee`);
             }
         }
 
@@ -295,7 +284,7 @@ export default class RequestNetwork {
     public async fromTransactionHash(
         txHash: string,
     ): Promise<{
-        request: Request | null,
+        request: Request|null,
         transaction: any,
         warnings: any,
         errors: any,
@@ -341,11 +330,6 @@ export default class RequestNetwork {
         }
 
         let signedRequestData = null;
-
-        // Check payees parameter
-        if (payees.length === 0 || !utils.isArrayOfPayeeInfos(payees)) {
-            throw new Error(`Invalid payees array`);
-        }
 
         if (currencyUtils.isErc20(currency)) {
             const addressTestToken = currencyUtils.erc20TokenAddress(currency, Web3Single.getInstance().networkName);
@@ -414,24 +398,9 @@ export default class RequestNetwork {
         additions: Types.Amount[] = [],
         broadcastCurrencyOptions: Types.IBroadcastCurrencyOptions = {},
         requestOptions: Types.IRequestCreationOptions = {},
-    ): PromiseEventEmitter<{ request: Request, transaction: any }> {
+    ): PromiseEventEmitter<{request: Request, transaction: any}> {
         let promise;
         const currency: Types.Currency = signedRequest.currency;
-
-        // Check signed request correctness
-        if (!(signedRequest instanceof SignedRequest)) {
-            throw new Error(`signedRequest should be an instance of SignedRequest`);
-        }
-
-        // Check payer parameter
-        if (!utils.isPayerInfo(payer)) {
-            throw new Error(`Invalid payer`);
-        }
-
-        // Check amount
-        if (!utils.isArrayOfPositiveAmounts(additions)) {
-            throw new Error(`additions must be an array of positive number`);
-        }
 
         // new promiEvent to wrap the promiEvent returned by the service. It is necessary, in order to add the Request object in the resolution of the promise
         const promiEvent = Web3PromiEvent();
