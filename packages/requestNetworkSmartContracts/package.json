@@ -2,7 +2,7 @@
   "name": "request-network-smart-contracts",
   "version": "0.2.7",
   "description": "Smart contracts that implement the Request Network protocol.",
-  "homepage": "https://github.com/RequestNetwork/requestNetwork/tree/master/packages/requestNetworkSmartContracts",
+  "homepage": "https://github.com/RequestNetwork/requestNetwork-v1-archive/tree/master/packages/requestNetworkSmartContracts",
   "keywords": [
     "ethereum",
     "request",

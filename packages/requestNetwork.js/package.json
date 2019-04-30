@@ -2,7 +2,7 @@
     "name": "@requestnetwork/request-network.js",
     "version": "0.10.0",
     "description": "A JavaScript library for interacting with the Request Network protocol",
-    "homepage": "https://github.com/RequestNetwork/requestNetwork/tree/master/packages/requestNetwork.js",
+    "homepage": "https://github.com/RequestNetwork/requestNetwork-v1-archive/tree/master/packages/requestNetwork.js",
     "keywords": [
         "ethereum",
         "request",
