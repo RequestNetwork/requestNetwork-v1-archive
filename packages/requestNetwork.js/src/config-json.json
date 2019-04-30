@@ -1,10 +1,8 @@
 {
     "ethereum": {
-        "default": "main",
+        "default": "private",
         "nodeUrlDefault": {
             "private": "http://localhost:8545",
-            "rinkeby": "https://rinkeby.infura.io/v3/aeae830838614da186df7984467a2d2d",
-            "main": "https://mainnet.infura.io/v3/aeae830838614da186df7984467a2d2d"
         },
         "defaultNumberOfConfirmation": 1,
         "gasPriceDefault": "4",
