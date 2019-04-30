@@ -2,7 +2,7 @@
     "ethereum": {
         "default": "private",
         "nodeUrlDefault": {
-            "private": "http://localhost:8545",
+            "private": "http://localhost:8545"
         },
         "defaultNumberOfConfirmation": 1,
         "gasPriceDefault": "4",
