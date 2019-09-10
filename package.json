@@ -1,6 +1,12 @@
 {
-	"homepage": "https://github.com/RequestNetwork/requestNetwork",
-	"devDependencies": {
-		"lerna": "3.2.1"
-	}
+    "name": "@requestnetwork/request-network-v1-archive-monorepo",
+    "version": "0.1.0",
+    "private": true,
+    "homepage": "https://github.com/RequestNetwork/requestNetwork-v1-archive",
+    "workspaces": [
+        "packages/*"
+    ],
+    "devDependencies": {
+        "lerna": "3.16.4"
+    }
 }
