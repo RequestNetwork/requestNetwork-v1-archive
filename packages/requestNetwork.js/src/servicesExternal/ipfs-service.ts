@@ -63,10 +63,13 @@ export default class Ipfs {
             }
             const dataParsed = JSON.parse(_data);
 
-            this.ipfs.add(Buffer.from(JSON.stringify(dataParsed)), (err: Error, result: any) => {
-                if (err) return reject(err);
-                return resolve(result[0].hash);
-            });
+            this.ipfs.add(
+                Buffer.from(JSON.stringify(dataParsed)),
+                {pin: false},
+                (err: Error, result: any) => {
+                    if (err) return reject(err);
+                    return resolve(result[0].hash);
+                });
         });
     }
 
