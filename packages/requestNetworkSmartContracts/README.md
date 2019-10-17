@@ -63,6 +63,7 @@ Contract addresses
 * Request Bitcoin with node validation: 0x6f33a7842ad134B2F4BCbEDB34BCE299DAD56C97
 * RequestERC20 token BNTY: 0xfa7B14e5e5e0b59ef6fB86f56928349EB607CbB3 
 * RequestERC20 token MKR: 0x23d33c46F64eF9AfEC6A19e7AD758E99c87ae129
+* RequestERC20 token RSR: 0x548AC0EC13B132f3B58bD8aFd83eBD2e225eB1A6
 
 
 ## Request Ethereum smart contracts
