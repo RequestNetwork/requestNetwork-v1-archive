@@ -110,6 +110,13 @@ function getCurrencyConfig(currency: Types.Currency)
             service: RequestERC20Service.getInstance(),
             decimals: 18,
         },
+        [Types.Currency.RSR as number]: {
+            erc20TokenAddresses: {
+                main: '0x8762db106b2c2a0bccb3a80d1ed41273552616e8',
+            },
+            service: RequestERC20Service.getInstance(),
+            decimals: 18,
+        },
     }[currency];
 }
 
@@ -146,6 +153,7 @@ export default {
             'RequestERC20-link': Types.Currency.LINK,
             'RequestERC20-bnty': Types.Currency.BNTY,
             'RequestERC20-mkr': Types.Currency.MKR,
+            'RequestERC20-rsr': Types.Currency.RSR,
         };
 
         const currencyContractName = requestArtifacts.getContractNameForAddress(address.toLowerCase());
