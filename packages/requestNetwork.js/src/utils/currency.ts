@@ -47,7 +47,7 @@ function getCurrencyConfig(currency: Types.Currency)
             service: RequestERC20Service.getInstance(),
             decimals: 9,
         },
-        [Types.Currency.DAI as number]: {
+        [Types.Currency.SAI as number]: {
             erc20TokenAddresses: {
                 main: '0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359',
             },
@@ -144,7 +144,7 @@ export default {
 
             'RequestERC20-knc': Types.Currency.KNC,
             'RequestERC20-dgx': Types.Currency.DGX,
-            'RequestERC20-dai': Types.Currency.DAI,
+            'RequestERC20-sai': Types.Currency.SAI,
             'RequestERC20-omg': Types.Currency.OMG,
             'RequestERC20-kin': Types.Currency.KIN,
             'RequestERC20-zrx': Types.Currency.ZRX,

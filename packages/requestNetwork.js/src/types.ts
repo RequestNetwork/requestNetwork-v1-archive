@@ -19,7 +19,7 @@ export enum Currency {
     REQ,
     KNC,
     DGX,
-    DAI,
+    SAI,
     OMG,
     KIN,
     ZRX,
