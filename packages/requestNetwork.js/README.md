@@ -1,10 +1,6 @@
 # Request JS Library Documentation 
 
-
-:warning:  **Due to the new infura authentication process, the default configuration for the Ethereum connection is now local instead of Mainnet.
-To use Request v1 on Rinkeby or Mainnet, you must use a custom web3 provider. 
-The infura token used previously (`aeae830838614da186df7984467a2d2d`) will be disabled soon. Please visit [infura.io] to get your own infura token.** :warning:
-
+:warning:  **Due to the upgrade to Multi-Collateral Dai: the old DAI is renamed in SAI and the MCD DAI will be added on the 19th of November 2019** :warning:
 
 ## Introduction
 
