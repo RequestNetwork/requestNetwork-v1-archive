@@ -1,6 +1,6 @@
 # Request JS Library Documentation 
 
-:warning:  **Due to the upgrade to Multi-Collateral Dai (see [upgrading-to-multi-collateral-dai.md](https://github.com/makerdao/developerguides/blob/master/mcd/upgrading-to-multi-collateral-dai/upgrading-to-multi-collateral-dai.md)), the old DAI is renamed to SAI and the MCD DAI will be added on the 19th of November 2019** :warning:
+:warning:  **Due to the upgrade to Multi-Collateral Dai (see [upgrading-to-multi-collateral-dai.md](https://github.com/makerdao/developerguides/blob/master/mcd/upgrading-to-multi-collateral-dai/upgrading-to-multi-collateral-dai.md)), the old DAI is renamed to SAI and the MCD DAI is now DAI** :warning:
 
 ## Introduction
 
