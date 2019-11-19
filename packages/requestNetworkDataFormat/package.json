@@ -1,6 +1,6 @@
 {
     "name": "requestnetwork-data-format",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "description": "Data format for the Request Network protocol",
     "homepage": "https://github.com/RequestNetwork/requestNetwork-v1-archive/tree/master/packages/requestNetworkDataFormat",
     "keywords": [
