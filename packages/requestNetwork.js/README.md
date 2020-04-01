@@ -1,17 +1,13 @@
 # Request JS Library Documentation 
 
-:warning:  **Due to the upgrade to Multi-Collateral Dai (see [upgrading-to-multi-collateral-dai.md](https://github.com/makerdao/developerguides/blob/master/mcd/upgrading-to-multi-collateral-dai/upgrading-to-multi-collateral-dai.md)), the old DAI is renamed to SAI and the MCD DAI is now DAI** :warning:
+:warning:  **This package is deprecated. Please consider using Request Network V2 instead, with the up-to-date [Request Network JS Client](https://github.com/RequestNetwork/requestNetwork/tree/master/packages/request-client.js).** :warning:
 
 ## Introduction
 
-Welcome to the requestNetwork.js documentation! requestNetwork.js is a Javascript library for interacting with the Request Network protocol. 
+Welcome to the requestNetwork.js documentation! requestNetwork.js is a Javascript library for interacting with the Request Network protocol V1. 
 Using the library you can create new requests from your applications, pay them, consult them or update them from your own off-chain applications. 
 
 If your application is decentralized and onchain on Ethereum, you can directly interact with our smart contracts. [Smart contract documentation](/packages/requestNetworkSmartContracts)  
-
-### Warning
-
-This is still an early version which is likely to significantly evolve. 
 
 ### Detailled documentation
 
@@ -21,26 +17,9 @@ Detailled API reference for the smart contracts is available on [docs-js-lib.req
 
 If you need help, [join the Request Hub Slack](https://request-slack.herokuapp.com/).
 
-### When developing you should know
+### Example app
 
-Everything that is specified in the [documentation of the protocol](https://docs.request.network/development/protocol).
-
-Among other things, this documentation specifies the smart contract architecture, the different actions that can be done at specific times, the statuses, how to use the extensions, the fee management system, the cross currency feature, how to manage identity and what to expect from the reputation system.
-
-### Tutorials
-
-* [Online payments](https://docs.request.network/development/guides/online-payments)
 * Take app.request.network website and [github](https://github.com/RequestNetwork/Request_App) as example
-
-Feel free to suggest your tutorials and we will refer to it.
-
-## New API for the library (version 0.7.1+)
-
-The version 0.7.1 of the library introduces a new way to use the library. This is version is meant to improve developer experience, and is 100% compatible with previous API.
-
-See the documentation on [docs.request.network](https://docs.request.network/development/using-the-javascript-library) to get started with it!
-
-The rest of the current documentation explain the pre-0.7.1 API.
 
 ## Using the library
 
